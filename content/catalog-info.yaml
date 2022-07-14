@@ -1,0 +1,20 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: Manabu
+  description: An example of a Backstage application.
+  links: 
+    - url: https://manabu.bcp.absa.co.za/
+      title: Manabu App
+      icon: cabin
+    - url: https://github.com/leeba-j/Backstage.io-Test
+      title: Backstage Repo
+      icon: github
+  # Example for optional annotations
+  annotations:
+    github.com/project-slug: leeba-j/Backstage.io-Test
+    backstage.io/techdocs-ref: dir:.
+spec:
+  type: website
+  owner: julius.leeba@absa.africa
+  lifecycle: experimental
