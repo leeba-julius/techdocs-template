@@ -3,9 +3,9 @@ apiVersion: scaffolder.backstage.io/v1beta3
 kind: Template
 # some metadata about the template itself
 metadata:
-  name: v1beta3-demo
-  title: Test Action template
-  description: scaffolder v1beta3 template demo
+  name: v1beta3-techdocs
+  title: Techdocs template
+  description: A skeleton for creating techdocs
 spec:
   owner: backstage/techdocs-core
   type: service
@@ -49,7 +49,7 @@ spec:
       name: Fetch Base
       action: fetch:template
       input:
-        url: ./template
+        url: ./content
         values:
           name: ${{ parameters.name }}
           owner: ${{ parameters.owner }}
