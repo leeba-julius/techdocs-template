@@ -1,0 +1,15 @@
+site_name: 'Manabu'
+site_description: 'Manabu user guide'
+repo_url: https://github.com/leeba-j/Backstage.io-Test
+edit_uri: edit/master/docs
+
+plugins:
+  - techdocs-core
+
+nav:
+    - First Page :
+        - Login Page : 'manabu/login-page.md'
+    - Main Page :
+        - Header : 'manabu/manabu-header.md'
+        - Quick Access Menu : 'manabu/quick-access-menu.md'
+        - Content Carousel : 'manabu/content-carousel.md'
