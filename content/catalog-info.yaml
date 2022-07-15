@@ -3,6 +3,7 @@ kind: Template
 metadata:
   name: ${{values.name}}
   description: ${{values.description}}
+  links:
     - url: https://github.com/${{values.owner}}/${{values.destination.repo}}
       title: Backstage Repo
       icon: github
