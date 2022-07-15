@@ -3,18 +3,14 @@ kind: Component
 metadata:
   name: Manabu
   description: An example of a Backstage application.
-  links: 
-    - url: https://manabu.bcp.absa.co.za/
-      title: Manabu App
-      icon: cabin
-    - url: https://github.com/leeba-j/Backstage.io-Test
+    - url: https://github.com/${{values.owner + "/" + values.name}}
       title: Backstage Repo
       icon: github
   # Example for optional annotations
   annotations:
-    github.com/project-slug: leeba-j/Backstage.io-Test
+    github.com/project-slug: ${{values.owner + "/" + values.name}}
     backstage.io/techdocs-ref: dir:.
 spec:
   type: website
-  owner: julius.leeba@absa.africa
+  owner: ${{values.owner}}
   lifecycle: experimental

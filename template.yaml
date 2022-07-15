@@ -7,7 +7,7 @@ metadata:
   title: Techdocs template
   description: A skeleton for creating techdocs
 spec:
-  owner: backstage/techdocs-core
+  owner: absa-group/backstage
   type: service
 
   # these are the steps which are rendered in the frontend with the form input
@@ -15,11 +15,20 @@ spec:
     - title: Fill in some steps
       required:
         - name
+        - description
+        - owner
       properties:
         name:
           title: Name
           type: string
           description: Unique name of the techdocs
+          ui:autofocus: true
+          ui:options:
+            rows: 5
+        description:
+          title: Description
+          type: string
+          description: Description of your techdocs
           ui:autofocus: true
           ui:options:
             rows: 5
@@ -59,7 +68,7 @@ spec:
       action: publish:github
       input:
         allowedHosts: ['github.com']
-        description: This is ${{ parameters.name }}
+        description: ${{ parameters.description }}
         repoUrl: ${{ parameters.repoUrl }}
 
     - id: register
