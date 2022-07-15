@@ -3,12 +3,12 @@ kind: Component
 metadata:
   name: ${{values.name}}
   description: ${{values.description}}
-    - url: https://github.com/${{values.owner + "/" + values.repoUrl}}
+    - url: https://github.com/${{values.owner + "/" + values.appRepoUrl}}
       title: Backstage Repo
       icon: github
   # Example for optional annotations
   annotations:
-    github.com/project-slug: ${{values.owner + "/" + values.repoUrl}}
+    github.com/project-slug: ${{values.owner + "/" + values.appRepoUrl}}
     backstage.io/techdocs-ref: dir:.
 spec:
   type: website
