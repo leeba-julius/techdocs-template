@@ -7,7 +7,7 @@ metadata:
   title: Techdocs template
   description: A skeleton for creating techdocs
 spec:
-  owner: absa-group/backstage
+  owner: leeba-j
   type: documentation
 
   # these are the steps which are rendered in the frontend with the form input
