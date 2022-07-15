@@ -22,9 +22,8 @@ spec:
           title: Name
           type: string
           description: Unique name of the techdocs
+          ui:field: EntityNamePicker
           ui:autofocus: true
-          ui:options:
-            rows: 5
         description:
           title: Description
           type: string
@@ -60,7 +59,8 @@ spec:
           name: ${{ parameters.name }}
           owner: ${{ parameters.owner }}
           description: ${{ parameters.description }}
-          destination: ${{ parameters.repoUrl | parseRepoUrl }}          
+          destination: ${{ parameters.repoUrl | parseRepoUrl }}     
+
     - id: publish
       name: Publish
       action: publish:github
@@ -74,7 +74,7 @@ spec:
       action: catalog:register
       input:
         repoContentsUrl: ${{ steps.publish.output.repoContentsUrl }}
-        catalogInfoPath: 'content/catalog-info.yaml'
+        catalogInfoPath: '/catalog-info.yaml'
 
   # some outputs which are saved along with the job for use in the frontend
   output:
