@@ -1,14 +1,14 @@
 apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
-  name: Manabu
-  description: An example of a Backstage application.
-    - url: https://github.com/${{values.owner + "/" + values.name}}
+  name: ${{values.name}}
+  description: ${{values.description}}
+    - url: https://github.com/${{values.owner + "/" + values.repo}}
       title: Backstage Repo
       icon: github
   # Example for optional annotations
   annotations:
-    github.com/project-slug: ${{values.owner + "/" + values.name}}
+    github.com/project-slug: ${{values.owner + "/" + values.repo}}
     backstage.io/techdocs-ref: dir:.
 spec:
   type: website
