@@ -1,6 +1,6 @@
 site_name: 'Manabu'
 site_description: 'Manabu user guide'
-repo_url: https://github.com/leeba-j/something-randomyy
+repo_url: https://github.com/${{values.owner}}/${{values.repo}}
 edit_uri: edit/master/docs
 
 plugins:
