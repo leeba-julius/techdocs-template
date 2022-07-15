@@ -8,7 +8,7 @@ metadata:
       icon: github
   # Example for optional annotations
   annotations:
-    github.com/project-slug: ${{values.owner + "/" + values.destination.repoUrl}}
+    github.com/project-slug: ${{values.owner + "/" + values.destination.appRepoUrl}}
     backstage.io/techdocs-ref: dir:.
 spec:
   type: website
