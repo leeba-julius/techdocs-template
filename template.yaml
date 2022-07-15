@@ -8,7 +8,7 @@ metadata:
   description: A skeleton for creating techdocs
 spec:
   owner: absa-group/backstage
-  type: service
+  type: documentation
 
   # these are the steps which are rendered in the frontend with the form input
   parameters:
@@ -29,9 +29,6 @@ spec:
           title: Description
           type: string
           description: Description of your techdocs
-          ui:autofocus: true
-          ui:options:
-            rows: 5
         owner:
           title: Owner
           type: string
@@ -62,7 +59,8 @@ spec:
         values:
           name: ${{ parameters.name }}
           owner: ${{ parameters.owner }}
-
+          description: ${{ parameters.description }}
+          destination: ${{ parameters.repoUrl}}
     - id: publish
       name: Publish
       action: publish:github
