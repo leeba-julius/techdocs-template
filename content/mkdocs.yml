@@ -1,15 +1,8 @@
-site_name: 'Manabu'
-site_description: 'Manabu user guide'
-repo_url: https://github.com/${{values.owner}}/${{values.destination.repo}}
-edit_uri: edit/master/docs
+site_name: ${{values.name | dump}}
+site_description: ${{values.description | dump}}
+
+nav:
+  - Introduction: index.md
 
 plugins:
   - techdocs-core
-
-nav:
-    - First Page :
-        - Login Page : 'manabu/login-page.md'
-    - Main Page :
-        - Header : 'manabu/manabu-header.md'
-        - Quick Access Menu : 'manabu/quick-access-menu.md'
-        - Content Carousel : 'manabu/content-carousel.md'
