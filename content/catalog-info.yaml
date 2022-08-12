@@ -1,17 +1,12 @@
 apiVersion: backstage.io/v1alpha1
-kind: Template
+kind: Component
 metadata:
-  name: ${{values.name}}
-  description: ${{values.description}}
-  links:
-    - url: https://github.com/${{values.owner}}/${{values.destination.repo}}
-      title: Backstage Repo
-      icon: github
-  # Example for optional annotations
+  name: ${{values.name | dump}}
+  description: ${{values.description | dump}}
   annotations:
-    github.com/project-slug: ${{values.owner + "/" + values.destination.repo}}
+    github.com/project-slug: ${{values.destination.owner + "/" + values.destination.repo}}
     backstage.io/techdocs-ref: dir:.
 spec:
-  type: website
-  owner: ${{values.owner}}
+  type: documentation
   lifecycle: experimental
+  owner: ${{values.owner | dump}}
