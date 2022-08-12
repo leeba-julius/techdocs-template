@@ -1,22 +1,22 @@
-# Notice the v1beta3 version
 apiVersion: scaffolder.backstage.io/v1beta3
 kind: Template
-# some metadata about the template itself
 metadata:
-  name: v1beta3-techdocs
-  title: Techdocs template
-  description: A skeleton for creating techdocs
+  name: techdocs-template
+  title: Techdocs Template
+  description: Create a new standalone techdocs project
+  tags:
+    - recommended
+    - techdocs
+    - mkdocs
 spec:
-  owner: leeba-julius
+  owner: Backstage
   type: documentation
 
-  # these are the steps which are rendered in the frontend with the form input
   parameters:
     - title: Fill in some steps
       required:
         - name
         - description
-        - owner
       properties:
         name:
           title: Name
@@ -27,11 +27,11 @@ spec:
         description:
           title: Description
           type: string
-          description: Description of your techdocs
+          description: A description for the techdocs
         owner:
           title: Owner
           type: string
-          description: Owner of the component
+          description: Owner of the techdocs
           ui:field: OwnerPicker
           ui:options:
             allowedKinds:
@@ -48,24 +48,22 @@ spec:
             allowedHosts:
               - github.com
 
-  # here's the steps that are executed in series in the scaffolder backend
-  steps:
-    - id: fetch-base
-      name: Fetch Base
+    - id: fetch
+      name: Techdocs template
       action: fetch:template
       input:
         url: ./content
         values:
           name: ${{ parameters.name }}
-          owner: ${{ parameters.owner }}
           description: ${{ parameters.description }}
-          destination: ${{ parameters.repoUrl | parseRepoUrl }}     
+          destination: ${{ parameters.repoUrl | parseRepoUrl }}
+          owner: ${{ parameters.owner }}
 
     - id: publish
       name: Publish
       action: publish:github
       input:
-        allowedHosts: ['github.com']
+        allowedHosts: ["github.com"]
         description: ${{ parameters.description }}
         repoUrl: ${{ parameters.repoUrl }}
 
@@ -74,13 +72,13 @@ spec:
       action: catalog:register
       input:
         repoContentsUrl: ${{ steps.publish.output.repoContentsUrl }}
-        catalogInfoPath: '/catalog-info.yaml'
+        catalogInfoPath: "/catalog-info.yaml"
 
-  # some outputs which are saved along with the job for use in the frontend
   output:
     links:
       - title: Repository
         url: ${{ steps.publish.output.remoteUrl }}
+        icon: github
       - title: Open in catalog
         icon: catalog
         entityRef: ${{ steps.register.output.entityRef }}
